@@ -55,7 +55,6 @@ Optimization: ModelCheckpoint to save and restore the best model weights based o
 
 We evaluated models using Confusion Matrices to visualize misclassifications. The Ensemble model demonstrated superior performance in distinguishing between Glioma and Meningioma, which was a primary challenge for individual models.
 
-(You can upload your confusion matrix image here)
 
 📦 How to Run
 
