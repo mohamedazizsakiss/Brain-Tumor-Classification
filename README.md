@@ -39,61 +39,82 @@ Channel Attention Module: Applied to each branch independently to weigh importan
 Feature Fusion: The refined features from both models are concatenated.
 
 2-Stage Training Strategy: 1.  Frozen Training: Training only the custom head while backbones are frozen.
-2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
-
-🛠️ Techniques Used
-
-Data Handling: Automatic RGB conversion for grayscale MRIs.
-
-Class Imbalance: Computed and applied class_weights to penalize misclassifications of minority classes.
-
-Regularization: Used Dropout and EarlyStopping to prevent overfitting.
-
-Optimization: ModelCheckpoint to save and restore the best model weights based on validation loss.
-
-📊 Results & Analysis
-
-We evaluated models using Confusion Matrices to visualize misclassifications. The Ensemble model demonstrated superior performance in distinguishing between Glioma and Meningioma, which was a primary challenge for individual models.
-
-(You can upload your confusion matrix image here)
-
-📦 How to Run
-
-Clone the repository:
-
-git clone [https://github.com/your-username/brain-tumor-ensemble.git](https://github.com/your-username/brain-tumor-ensemble.git)
+ 2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
 
 
-Install dependencies:
+### 2. 🔗 Blockchain Security (NeuroChain Ledger)
+* **Tamper-Proof Records:** Every diagnosis is hashed (SHA-256) and stored in a local blockchain ledger.
+* **Evidence Locker:** Automatically captures the "Best Shot" (highest confidence frame) from videos and secures it on-chain.
+* **Audit Trail:** Verify the integrity of past diagnoses via the Ledger Audit tab.
 
-pip install -r requirements.txt
+### 3. 🎥 Universal Analysis
+* **Multi-Format Support:** Analyze static **MRI Images** (JPG, PNG) or full **Video Sequences** (MP4, AVI).
+* **Real-Time Tracking:** Processes video feeds frame-by-frame to identify tumor presence dynamically.
 
+---
 
-Update the DRIVE_PROJECT_PATH in the notebook to point to your dataset location.
+## ⚠️ Important: Setup Instructions
 
-Run the Jupyter Notebook brain_tumor_finetune.ipynb.
+Because the AI model file is large (>100MB), it cannot be hosted directly on GitHub. You must download it separately.
 
-📂 Dataset
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/mohamedazizsakiss/Brain-Tumor-Classification.git](https://github.com/mohamedazizsakiss/Brain-Tumor-Classification.git)
+    cd Brain-Tumor-Classification
+    ```
 
-The dataset used is the Brain Tumor MRI Dataset available on Kaggle.
+2.  **Install Dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Total Images: ~3,000+
+3.  **🔴 Download the Model (CRITICAL)**
+    * Download the trained model file from **[https://drive.google.com/file/d/13MTbMXfZTbAoniGUT4H8DGowTdnrTCen/view?usp=sharing]**.
+    * **Rename the file** to: `brain_tumor_model.keras`
+    * **Move it** into the root folder of this project.
 
-Format: JPG (converted to RGB during preprocessing)
+4.  **Run the Application**
+    ```bash
+    streamlit run app.py
+    ```
 
-📜 License
+---
 
-This project is licensed under the MIT License.
+## 🛠️ Tech Stack
 
-## 🔒 NEW: Blockchain Security Layer (Added Jan 2026)
-To prevent **Data Poisoning** attacks (where hackers alter MRI scans to fool the AI), I engineered a cryptographic verification system.
+* **Frontend:** [Streamlit](https://streamlit.io/)
+* **Deep Learning:** TensorFlow / Keras
+* **Computer Vision:** OpenCV (cv2), PIL
+* **Security:** Python `hashlib` (SHA-256 Blockchain implementation)
+* **Data Handling:** NumPy, Pandas
 
-* **Technology:** Custom Python Blockchain + SHA-256 Hashing.
-* **Function:** Creates an immutable ledger of all authorized MRI scans.
-* **Defense:** Automatically flags tampered images *before* they reach the diagnosis model.
+---
 
-**How to run the security dashboard:**
-```bash
-cd security_dashboard
-pip install -r requirements.txt
-streamlit run app.py
+## 📸 Usage Guide
+
+### Tab 1: Universal Analysis
+* Upload an MRI Image or Video.
+* The system preprocesses the input (resizing, normalization).
+* **For Images:** Instant classification with confidence score.
+* **For Videos:** The AI scans every frame and automatically captures the "Best Evidence" frame where the tumor is most visible.
+
+### Tab 2: Ledger Audit
+* View the history of all secure transactions.
+* Check the cryptographic hashes to ensure data hasn't been altered.
+* Status indicator shows if the Blockchain is **Valid ✅** or **Tampered ❌**.
+
+---
+
+## ⚠️ Limitations & Disclaimer
+
+* **Viewpoint Sensitivity:** This model is trained primarily on **Axial (Top-Down)** MRI scans.
+    * ✅ **Axial:** High Accuracy
+    * ⚠️ **Sagittal (Side) / Coronal (Front):** May yield lower accuracy or false positives due to domain shift.
+* **Educational Use:** This project is a prototype for educational purposes and should not be used as a standalone tool for medical diagnosis without clinical validation.
+
+---
+
+### 👨‍💻 Author
+**Mohamed Aziz Sakiss**
+* *AI Engineering Student @ EPI Digital School*
+* [GitHub Profile](https://github.com/mohamedazizsakiss)

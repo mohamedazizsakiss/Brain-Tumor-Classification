@@ -1,0 +1,12 @@
+# Ignore huge model files
+*.keras
+*.h5
+brain_tumor_model.keras
+ensemble_vgg_eff_best.keras
+
+# Ignore python cache and virtual environments
+__pycache__/
+*.pyc
+venv/
+.env
+.DS_Store
