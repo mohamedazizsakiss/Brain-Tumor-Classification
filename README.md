@@ -39,10 +39,8 @@ Channel Attention Module: Applied to each branch independently to weigh importan
 Feature Fusion: The refined features from both models are concatenated.
 
 2-Stage Training Strategy: 1.  Frozen Training: Training only the custom head while backbones are frozen.
-<<<<<<< HEAD
  2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
-=======
-2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
+
 
 🛠️ Techniques Used
 
@@ -64,7 +62,6 @@ We evaluated models using Confusion Matrices to visualize misclassifications. Th
 Clone the repository:
 
 git clone [https://github.com/your-username/brain-tumor-ensemble.git](https://github.com/your-username/brain-tumor-ensemble.git)
->>>>>>> ff92661262fbf1d1ec875efbfd9b3f2ec3f51887
 
 
 ### 2. 🔗 Blockchain Security (NeuroChain Ledger)
