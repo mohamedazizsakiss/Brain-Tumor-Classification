@@ -39,7 +39,32 @@ Channel Attention Module: Applied to each branch independently to weigh importan
 Feature Fusion: The refined features from both models are concatenated.
 
 2-Stage Training Strategy: 1.  Frozen Training: Training only the custom head while backbones are frozen.
+<<<<<<< HEAD
  2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
+=======
+2.  Fine-Tuning: Unfreezing the top layers of both backbones and training with a low learning rate (1e-5) to adapt generic features to medical nuances.
+
+🛠️ Techniques Used
+
+Data Handling: Automatic RGB conversion for grayscale MRIs.
+
+Class Imbalance: Computed and applied class_weights to penalize misclassifications of minority classes.
+
+Regularization: Used Dropout and EarlyStopping to prevent overfitting.
+
+Optimization: ModelCheckpoint to save and restore the best model weights based on validation loss.
+
+📊 Results & Analysis
+
+We evaluated models using Confusion Matrices to visualize misclassifications. The Ensemble model demonstrated superior performance in distinguishing between Glioma and Meningioma, which was a primary challenge for individual models.
+
+
+📦 How to Run
+
+Clone the repository:
+
+git clone [https://github.com/your-username/brain-tumor-ensemble.git](https://github.com/your-username/brain-tumor-ensemble.git)
+>>>>>>> ff92661262fbf1d1ec875efbfd9b3f2ec3f51887
 
 
 ### 2. 🔗 Blockchain Security (NeuroChain Ledger)
@@ -90,6 +115,7 @@ Because the AI model file is large (>100MB), it cannot be hosted directly on Git
 
 ---
 
+<<<<<<< HEAD
 ## 📸 Usage Guide
 
 ### Tab 1: Universal Analysis
@@ -118,3 +144,10 @@ Because the AI model file is large (>100MB), it cannot be hosted directly on Git
 **Mohamed Aziz Sakiss**
 * *AI Engineering Student @ EPI Digital School*
 * [GitHub Profile](https://github.com/mohamedazizsakiss)
+=======
+**How to run the security dashboard:**
+```bash
+cd security_dashboard
+pip install -r requirements.txt
+streamlit run app.py
+>>>>>>> ff92661262fbf1d1ec875efbfd9b3f2ec3f51887
